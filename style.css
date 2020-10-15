@@ -1,0 +1,284 @@
+:root{
+    --bg : #FEFAE0;
+    --text-st:#283618;
+    --bg-nd:#606C38;
+    --text-rd:#e79a56;
+    --bg-rd:#e08113;
+}
+
+
+body {
+    background-color: var(--bg);
+    margin: 0;                  /* removing the DEFAULT margin from body */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.125rem;
+    font-weight: 300;
+}
+header{
+    /* text-align: center; not require after applying flex */
+    background: var(--bg-nd);
+     padding:.5em 0;
+    text-align: center ;
+    margin-bottom: 2em;
+}
+/*  */
+img{
+    max-width: 100%;   /* to fit image in container for moblie screen */  
+    display: block;
+    margin: 0 auto;    /* to make image in center */
+}
+
+footer{
+    background:var(--text-st);
+    color:var(--text-rd) ;
+    padding: 1em 0 ;
+    text-align: center;
+    margin: 0;
+}
+
+
+/* .article-info{
+    margin: 2em 0;
+} */
+/*** PROJECT FOR mobile FIRST ***/
+/* Typography */
+
+
+h2 , 
+h3{                                          /* IMP-- Using multi class OR tag which hve same STYLE */
+    font-family: 'Courier New', Courier, monospace;          
+     font-weight: 800;
+     color:var(--bg-rd);
+     margin-top: 0;
+}
+
+h1 {
+    color:var(--text-st);
+     font-size: 2rem;
+     margin: 0;
+}
+ 
+.article-title {
+    font-size: 1.5rem;
+}
+
+.article-reading, 
+.article-info {
+    font-size: .875rem;
+}
+
+.article-reading{
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: 700;              /* same as writhing "bold" */
+   
+}
+
+.article-reading:hover,
+.article-reading:focus{
+    color: var(--bg-nd);
+    text-decoration: underline;
+    font-weight: 900;              
+}
+
+
+/*  */
+.site-title h1{
+     font-family: 'Courier New', Courier, monospace;
+     font-weight: 900;                               /* h1 Allready have a defaut Bold 700 To make it litter soo we use 400 */
+     color:var(--bg-rd) ;
+     font-size: 2rem;
+     margin: 0;      /* to remove exta space '1'*/
+}
+
+.sidebar-post{
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.inside-title{
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+
+
+ /* LOGO TITLE */
+.subtitle{
+    font-weight: 800; /* Same bold as default Using "Bold" insted of 700 will result the Same OUTPUT */
+    color:var(--text-rd);
+    font-size: 1rem;
+    margin: 0;         /* to remove exta space '1'*/
+}
+ /* MAIN navigstion */
+nav ul /*OR ".nav-list " to organize properly */{
+    list-style: none;         
+    padding: 0;              
+    display: flex;            
+    text-align: center;
+    flex-direction: column;
+}
+
+nav ul li{
+    margin-top: 1em;
+}
+/*  */
+nav a{ 
+    text-decoration: none;   /* REMOVE  line from link */
+    color: var(--bg);
+    font-weight: 700;
+    padding:.25em 0;       /* to control the size of underline in nav */
+}
+
+nav a:hover , nav a:focus /* ":focus" will highlight that link what you are IN */{
+     color: var(--text-rd);
+}
+
+.current-page{
+    color: #1900ff;
+    text-decoration:underline #1900ff;  
+}
+ 
+.current-page:hover,
+.current-page:focus{
+    color: #1900ff;
+    text-decoration:underline;        /* to make border hover in navigation */
+
+}
+
+.container {
+    width: 95%;
+    max-width: 920px;
+    margin: 0 auto;
+    /* border: 1px solid blue; */
+}
+
+.container-flex /* creating OTher container to organize it properly */{
+    display: flex;
+    justify-content: space-between; /* take extra space from left side AND put it between coloums */
+    flex-direction: column;         /* Default one */
+}
+
+
+ /*  */
+/* MEDIA QUARY */
+
+@media (min-width: 720px){
+    .container-flex{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+
+
+    main{
+        width: 70%;
+    }
+    aside{
+        width: 25%;
+        margin-left:1em ;
+    }
+    nav ul{
+        flex-direction: row;
+    }
+    nav ul li{
+        margin-top: 0;
+        margin-left: 2em;
+    }
+
+    
+
+}
+
+
+
+/* article */
+
+.article-1st{
+    border-bottom: solid 5px var(--bg-rd);
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+}
+
+.article-recent{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em ;
+}
+
+/*  */
+.article-recent-main{
+    order: 2;             /* greater order one DISPLAY after the order numder smaller than him */ /* this will dispaly after order:1,0,or -1 soo on.. */
+}
+ .article-recent-secondary{
+     order: 1;
+     
+ }
+ /* for date and time */
+/*  */
+@media (min-width: 620px){      /* Wh */           
+    
+    .article-titile{           /* While using this be carefull or not use is batter it is just to understsand how negative values works */
+        margin-top:-1em;     /* to align date and time if your title is LONG than it can be over lap  */
+    }
+    .article-info{
+        text-align: right;                     
+    }
+    .article-recent{
+        flex-direction: row;           /* chinging the direction of flex */
+        justify-content: space-between;
+        
+    }
+    .article-recent-main{
+        width: 68%;
+    }
+    .article-recent-seconderys{
+        width: 30%;
+    }
+
+    .article-1st{
+        display: flex;
+        flex-direction: column;
+        justify-content:space-between ;
+    }
+
+    .article-image{
+        width: 100%;
+        min-height: 150px;      /*  */
+        object-fit: cover;      /* "object-fil" will not steratch the image its crop as per size and "object-position: ;" given like LEFT ,RIGHT AND CENTER  */
+
+    }
+    /* to make header to come up */
+    .article-image{
+        order: -2;
+    }
+
+    .article-info{
+        order:-1;
+    }
+}
+
+/* aside layout */
+
+.sidebar-inside{
+    border: 1em solid rgb(233, 233, 233);
+    margin-bottom: 1em;
+    padding: 1em;
+}
+ 
+.sidebar-img{
+    order: -1;
+}
+
+.sidebar-inside-post{
+    display:flex;
+    flex-direction: column;            /* applied to give it an order  */
+    border-bottom: 2px solid gray;
+    padding: 0;
+    margin-bottom: 1em;
+}
+ /*  */
+.sidebar-inside-post:last-child{           /* targets the last elements of selected class */
+    margin: 0;
+    border: 0;
+}
